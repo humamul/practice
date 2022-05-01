@@ -1,0 +1,12 @@
+body{
+    background-color: blanchedalmond;
+}
+.nav{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+}
+.nav>div{
+    font-size: 60px;
+    font-family: sans-serif;
+}

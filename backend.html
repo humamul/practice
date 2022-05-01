@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="nav">
+        <div><a href="fronted.html">Fronted</a></div>
+        <div><a href="backend.html">Backend</a></div>
+    </div>
+<h1>backend</h1>
+<form id="form">
+    <input type="text" placeholder="Image Link" id="image">
+    <input type="text" placeholder="Name" id="name">
+    <input type="text" placeholder="Position" id="position">
+    <input type="text" placeholder="Company Logo" id="logo"> 
+    <input type="submit" id="sub">
+</form>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",myfun)
+
+    var backendArr = JSON.parse(localStorage.getItem('Info')) || [];
+
+    function myfun(){
+        event.preventDefault()
+        if(form.image.value == "" || form.name.value =="" ||form.position.value == "" || form.logo.value == ""){
+            return alert("Fill All Details")
+        }
+        var obj = {
+            pic: form.image.value,
+            name: form.name.value,
+            position: form.position.value,
+            logo: form.logo.value
+        }
+
+        backendArr.push(obj)
+
+        localStorage.setItem("Info",JSON.stringify(backendArr))
+      
+    }
+</script>

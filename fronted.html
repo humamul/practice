@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fronted</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        #container{
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            gap: 20px;
+        }
+        #container>div{
+            border: 1px solid;
+            text-align: center;
+        }
+        h4+img{
+            width: 70%;
+         
+        }
+        #container>div>img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div><a href="fronted.html">Fronted</a></div>
+        <div><a href="backend.html">Backend</a></div>
+    </div>
+    <h1>Fronted</h1>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script>
+    var data = JSON.parse(localStorage.getItem("Info"));
+
+    data.forEach(function(elem){
+        var card = document.createElement('div')
+
+        var image = document.createElement('img')
+        image.setAttribute('src',elem.pic)
+
+        var Name = document.createElement('h1')
+        Name.innerText = elem.name
+
+        var pos = document.createElement("h4")
+        pos.innerText = elem.position;
+
+        var com = document.createElement('img')
+        com.setAttribute('src',elem.logo)
+
+        card.append(image,Name,pos,com);
+        document.querySelector('#container').append(card)
+    })
+</script>
